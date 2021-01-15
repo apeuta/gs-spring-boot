@@ -12,7 +12,7 @@ variables:
   azureSubscription: 'd4dc12d2-bba4-41e8-a5fc-ab93dee6d310'
   
   # Web app name
-  webAppName: 'andra-springboot-maven'
+  webAppName: 'java-app-devops'
 
   # Agent VM image name
   vmImageName: 'ubuntu-latest'
@@ -27,6 +27,8 @@ stages:
       vmImage: $(vmImageName)
     
     steps:
+    - publish: $(System.DefaultWorkingDirectory)/bin/WebApp
+      artifact: JavaMaven
     - task: Maven@3
       displayName: 'Maven Package'
       inputs:
